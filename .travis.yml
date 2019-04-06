@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t ninad/frontend-dev -f Dockerfile.dev .
+
+script:
+  - docker run ninad/frontend-dev npm run test -- --coverage
